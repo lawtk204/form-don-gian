@@ -1,0 +1,307 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website xem hoạt hình trực tuyến dành cho gia đình.">
+    <title>AnimeKids - Thế giới hoạt hình</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="#" class="logo">🐱 Anime<span>Kids</span></a>
+
+        <nav class="head-link">
+            <a href="#home">Trang chủ</a>
+            <a href="#movie-list">Danh sách phim</a>
+            <a href="#player">Xem phim</a>
+        </nav>
+
+        <a href="#movie-list" class="header-button">Khám phá phim</a>
+    </header>
+
+    <!-- BANNER -->
+    <section class="welcome" id="home">
+        <div>
+            <p class="eyebrow">THẾ GIỚI HOẠT HÌNH</p>
+            <h1>Mỗi ngày một cuộc phiêu lưu!</h1>
+            <p>Khám phá những bộ phim hoạt hình thú vị cho cả gia đình.</p>
+        </div>
+        <div class="welcome-icon">🎬 🍿 🌈</div>
+    </section>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <div class="content">
+
+        <!-- LEFT CONTENT: DANH SÁCH PHIM -->
+        <aside class="left-content" id="movie-list">
+            <h2>📺 Danh sách phim</h2>
+
+            <label for="search">Tìm phim theo tên</label>
+            <input
+                type="search"
+                id="search"
+                placeholder="Nhập tên phim..."
+            >
+
+            <label for="sort">Sắp xếp phim</label>
+            <select id="sort">
+                <option value="newest">Mới cập nhật</option>
+                <option value="views">Nhiều lượt xem nhất</option>
+            </select>
+
+            <div class="movie-list" id="movieList">
+
+                <button class="movie active"
+                    data-title="Chú thỏ phiêu lưu"
+                    data-video="aqz-KE-bpKQ"
+                    data-file="videos/hoat-hinh-1.mp4"
+                    data-views="1200000"
+                    data-date="3">
+                    <span class="thumbnail blue">🐰</span>
+                    <span class="movie-info">
+                        <strong>Chú thỏ phiêu lưu</strong>
+                        <small>Tập 1 · Cuộc khám phá kỳ thú</small>
+                        <small>▶ 1.2M lượt xem</small>
+                    </span>
+                </button>
+
+                <button class="movie"
+                    data-title="Thế giới động vật"
+                    data-video="aqz-KE-bpKQ"
+                    data-file="videos/hoat-hinh-1.mp4"
+                    data-views="850000"
+                    data-date="2">
+                    <span class="thumbnail green">🦊</span>
+                    <span class="movie-info">
+                        <strong>Thế giới động vật</strong>
+                        <small>Tập 2 · Những người bạn mới</small>
+                        <small>▶ 850K lượt xem</small>
+                    </span>
+                </button>
+
+                <button class="movie"
+                    data-title="Cuộc phiêu lưu vũ trụ"
+                    data-video="aqz-KE-bpKQ"
+                    data-file="videos/hoat-hinh-1.mp4"
+                    data-views="720000"
+                    data-date="1">
+                    <span class="thumbnail purple">🚀</span>
+                    <span class="movie-info">
+                        <strong>Cuộc phiêu lưu vũ trụ</strong>
+                        <small>Tập 3 · Khám phá các vì sao</small>
+                        <small>▶ 720K lượt xem</small>
+                    </span>
+                </button>
+
+                <button class="movie"
+                    data-title="Khu rừng kỳ diệu"
+                    data-video="aqz-KE-bpKQ"
+                    data-file="videos/hoat-hinh-1.mp4"
+                    data-views="530000"
+                    data-date="0">
+                    <span class="thumbnail orange">🦁</span>
+                    <span class="movie-info">
+                        <strong>Khu rừng kỳ diệu</strong>
+                        <small>Tập 4 · Bí mật trong rừng</small>
+                        <small>▶ 530K lượt xem</small>
+                    </span>
+                </button>
+
+            </div>
+
+            <p class="empty-message" id="emptyMessage" hidden>
+                Không tìm thấy phim phù hợp.
+            </p>
+        </aside>
+
+        <!-- RIGHT CONTENT: TRÌNH PHÁT -->
+        <main class="right-content" id="player">
+            <h2 id="currentTitle">Chú thỏ phiêu lưu - Tập 1</h2>
+            <p class="player-description">
+                Chọn phim trong danh sách để bắt đầu xem.
+            </p>
+
+            <div class="player-switch">
+                <button type="button" id="youtubeButton" class="player-tab active">
+                    YouTube
+                </button>
+                <button type="button" id="localButton" class="player-tab">
+                    Video MP4
+                </button>
+            </div>
+
+            <div class="video-container">
+                <iframe
+                    id="youtubePlayer"
+                    src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ"
+                    title="Trình phát video hoạt hình"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <video id="localPlayer" controls preload="metadata" hidden>
+                    <source src="videos/hoat-hinh-1.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video HTML5.
+                </video>
+            </div>
+
+            <div class="video-details">
+                <div>
+                    <span class="tag">Hoạt hình</span>
+                    <span class="tag">Gia đình</span>
+                    <span class="tag">HD</span>
+                </div>
+                <p>
+                    Hãy lựa chọn nội dung phù hợp với độ tuổi.
+                    Video mẫu cần được thay bằng phim được phép sử dụng
+                    và có thuyết minh tiếng Việt nếu cần.
+                </p>
+            </div>
+
+            <section class="notice">
+                <span>🛡️</span>
+                <div>
+                    <strong>Góc giải trí an toàn</strong>
+                    <p>Ưu tiên nội dung phù hợp với trẻ em và gia đình.</p>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 AnimeKids. Bài tập thực hành HTML và CSS.</p>
+        <a href="#home">Về đầu trang ↑</a>
+    </footer>
+
+    <!-- JAVASCRIPT: TÌM KIẾM, SẮP XẾP VÀ CHỌN VIDEO -->
+    <script>
+        const searchInput = document.getElementById("search");
+        const sortSelect = document.getElementById("sort");
+        const movieList = document.getElementById("movieList");
+        const emptyMessage = document.getElementById("emptyMessage");
+        const currentTitle = document.getElementById("currentTitle");
+
+        const youtubePlayer = document.getElementById("youtubePlayer");
+        const localPlayer = document.getElementById("localPlayer");
+        const youtubeButton = document.getElementById("youtubeButton");
+        const localButton = document.getElementById("localButton");
+
+        let selectedMovie = movieList.querySelector(".movie");
+        let playerMode = "youtube";
+
+        function showMovie(movie) {
+            if (!movie) return;
+
+            selectedMovie = movie;
+
+            movieList.querySelectorAll(".movie").forEach((item) => {
+                item.classList.toggle("active", item === movie);
+            });
+
+            currentTitle.textContent = movie.dataset.title;
+            youtubePlayer.src =
+                "https://www.youtube-nocookie.com/embed/" +
+                movie.dataset.video;
+
+            const source = localPlayer.querySelector("source");
+            source.src = movie.dataset.file;
+            localPlayer.load();
+
+            if (playerMode === "local") {
+                youtubePlayer.hidden = true;
+                localPlayer.hidden = false;
+            }
+        }
+
+        function updateMovieList() {
+            const keyword = searchInput.value
+                .trim()
+                .toLowerCase();
+
+            const movies = Array.from(
+                movieList.querySelectorAll(".movie")
+            );
+
+            movies.sort((a, b) => {
+                if (sortSelect.value === "views") {
+                    return Number(b.dataset.views) -
+                           Number(a.dataset.views);
+                }
+
+                return Number(b.dataset.date) -
+                       Number(a.dataset.date);
+            });
+
+            movies.forEach((movie) => {
+                movieList.appendChild(movie);
+
+                const title = movie.dataset.title.toLowerCase();
+                movie.hidden = !title.includes(keyword);
+            });
+
+            const visibleMovies = movies.filter(
+                (movie) => !movie.hidden
+            );
+
+            emptyMessage.hidden = visibleMovies.length > 0;
+
+            if (selectedMovie && selectedMovie.hidden) {
+                if (visibleMovies.length > 0) {
+                    showMovie(visibleMovies[0]);
+                } else {
+                    selectedMovie.classList.remove("active");
+                }
+            } else if (!selectedMovie && visibleMovies.length > 0) {
+                showMovie(visibleMovies[0]);
+            }
+        }
+
+        movieList.addEventListener("click", (event) => {
+            const movie = event.target.closest(".movie");
+
+            if (movie && !movie.hidden) {
+                showMovie(movie);
+            }
+        });
+
+        searchInput.addEventListener("input", updateMovieList);
+        sortSelect.addEventListener("change", updateMovieList);
+
+        youtubeButton.addEventListener("click", () => {
+            playerMode = "youtube";
+            youtubePlayer.hidden = false;
+            localPlayer.pause();
+            localPlayer.hidden = true;
+
+            youtubeButton.classList.add("active");
+            localButton.classList.remove("active");
+        });
+
+        localButton.addEventListener("click", () => {
+            playerMode = "local";
+            youtubePlayer.hidden = true;
+            localPlayer.hidden = false;
+
+            youtubePlayer.src = "about:blank";
+            localPlayer.querySelector("source").src =
+                selectedMovie.dataset.file;
+            localPlayer.load();
+
+            localButton.classList.add("active");
+            youtubeButton.classList.remove("active");
+        });
+
+        updateMovieList();
+    </script>
+
+</body>
+</html>
+```

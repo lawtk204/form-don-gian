@@ -1,0 +1,465 @@
+
+/* Thiết lập chung */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    margin: 0;
+    padding-top: 76px;
+    font-family: Arial, sans-serif;
+    color: #20304a;
+    background: #f3f7fc;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+a:hover {
+    color: #1677e8;
+    font-weight: bold;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+/* Header cố định */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    min-height: 76px;
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #12345a;
+    color: white;
+    box-shadow: 0 3px 12px #12284620;
+}
+
+.logo {
+    flex-shrink: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #ffd166;
+}
+
+.head-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+}
+
+.head-link a {
+    color: white;
+    font-size: 14px;
+}
+
+.head-link a:hover {
+    color: #ffd166;
+}
+
+.header-button {
+    flex-shrink: 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: #ffd166;
+    color: #20304a;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.header-button:hover {
+    background: #ffbd36;
+    color: #20304a;
+}
+
+/* Banner chào mừng */
+.welcome {
+    margin: 24px auto;
+    width: min(1200px, 92%);
+    min-height: 170px;
+    padding: 28px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(120deg, #dceeff, #fff1ce);
+}
+
+.welcome h1 {
+    margin: 8px 0;
+    font-size: clamp(24px, 3vw, 34px);
+}
+
+.welcome p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.welcome .eyebrow {
+    color: #1677e8;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.welcome-icon {
+    font-size: clamp(28px, 5vw, 52px);
+    white-space: nowrap;
+}
+
+/* Bố cục hai cột */
+.content {
+    width: min(1200px, 92%);
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.7fr);
+    align-items: start;
+    gap: 22px;
+}
+
+.left-content,
+.right-content {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid #e4eaf2;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 5px 20px #18365b0a;
+}
+
+.left-content h2,
+.right-content h2 {
+    margin-top: 0;
+}
+
+/* Tìm kiếm và sắp xếp */
+.left-content label {
+    display: block;
+    margin: 16px 0 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.left-content input,
+.left-content select {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #d9e2ef;
+    border-radius: 8px;
+    background: #fff;
+    color: #20304a;
+}
+
+.left-content input:focus,
+.left-content select:focus {
+    outline: 2px solid #9bc9ff;
+    border-color: #1677e8;
+}
+
+/* Danh sách phim */
+.movie-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.movie {
+    width: 100%;
+    min-width: 0;
+    padding: 9px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: #f7f9fc;
+    color: #20304a;
+    cursor: pointer;
+}
+
+.movie:hover,
+.movie.active {
+    border-color: #a8d0ff;
+    background: #eaf4ff;
+}
+
+.thumbnail {
+    width: 76px;
+    height: 66px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    font-size: 30px;
+}
+
+.thumbnail.blue {
+    background: #c9e9ff;
+}
+
+.thumbnail.green {
+    background: #d7f5d6;
+}
+
+.thumbnail.purple {
+    background: #e9d9ff;
+}
+
+.thumbnail.orange {
+    background: #ffe2bd;
+}
+
+.movie-info {
+    min-width: 0;
+    display: grid;
+    gap: 5px;
+}
+
+.movie-info strong,
+.movie-info small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.movie-info strong {
+    font-size: 13px;
+}
+
+.movie-info small {
+    color: #697a91;
+    font-size: 11px;
+}
+
+.empty-message {
+    padding: 14px;
+    text-align: center;
+    color: #697a91;
+}
+
+/* Khu vực phát video */
+.player-description {
+    color: #697a91;
+    line-height: 1.6;
+}
+
+.player-switch {
+    display: flex;
+    gap: 8px;
+    margin: 18px 0 12px;
+}
+
+.player-tab {
+    padding: 9px 15px;
+    border: 1px solid #d9e2ef;
+    border-radius: 8px;
+    background: white;
+    color: #334b69;
+    cursor: pointer;
+}
+
+.player-tab:hover,
+.player-tab.active {
+    border-color: #1677e8;
+    background: #1677e8;
+    color: white;
+}
+
+/* Tỷ lệ khung video 16:9 */
+.video-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    background: #101828;
+}
+
+.video-container iframe,
+.video-container video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: contain;
+}
+
+.video-container [hidden] {
+    display: none;
+}
+
+.video-details {
+    padding-top: 16px;
+}
+
+.tag {
+    display: inline-block;
+    margin: 0 5px 8px 0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #eaf4ff;
+    color: #1769c2;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.video-details p {
+    color: #697a91;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Thông báo an toàn */
+.notice {
+    margin-top: 18px;
+    padding: 14px;
+    display: flex;
+    gap: 12px;
+    border-radius: 10px;
+    background: #eef8f0;
+}
+
+.notice > span {
+    font-size: 25px;
+}
+
+.notice p {
+    margin-bottom: 0;
+    color: #50685a;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    padding: 24px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: #12345a;
+    color: white;
+    font-size: 13px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer a:hover {
+    color: #ffd166;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .head-link {
+        order: 3;
+        width: 100%;
+        padding: 5px 0;
+        gap: 18px;
+    }
+
+    body {
+        padding-top: 120px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .left-content {
+        order: 2;
+    }
+
+    .right-content {
+        order: 1;
+    }
+}
+
+/* Điện thoại */
+@media (max-width: 520px) {
+    body {
+        padding-top: 126px;
+    }
+
+    .header {
+        padding: 12px 4%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .header-button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .head-link {
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .head-link a {
+        font-size: 12px;
+    }
+
+    .welcome,
+    .content {
+        width: 94%;
+    }
+
+    .welcome {
+        margin-top: 14px;
+        padding: 20px;
+    }
+
+    .welcome-icon {
+        display: none;
+    }
+
+    .left-content,
+    .right-content {
+        padding: 15px;
+    }
+
+    .thumbnail {
+        width: 62px;
+        height: 58px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
