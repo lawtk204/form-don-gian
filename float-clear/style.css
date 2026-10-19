@@ -1,0 +1,65 @@
+
+/* Định dạng chung */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Container bao bọc hai cột */
+.container {
+    width: 100%;
+}
+
+/* Cột nội dung bên trái */
+.left-column {
+    width: 60%;
+    float: left;
+    background-color: lightblue;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 250px;
+}
+
+/* Cột sidebar bên phải */
+.right-column {
+    width: 38%;
+    float: right;
+    background-color: lightgreen;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 250px;
+}
+
+/* Xử lý float để container bao trọn hai cột */
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Footer nằm dưới hai cột */
+.footer {
+    clear: both;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 600px) {
+    .left-column,
+    .right-column {
+        float: none;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
