@@ -1,0 +1,65 @@
+
+/* Định dạng chung cho trang */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/* Phân vùng menu */
+#menu {
+    height: 40px;
+    border: 1px solid #333;
+    margin: 30px auto;
+    background-color: black;
+}
+
+/* Xóa dấu đầu dòng và khoảng cách mặc định */
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Các mục trong danh sách */
+#menu li {
+    position: relative;
+    float: left;
+}
+
+/* Liên kết trong menu */
+#menu a {
+    display: block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Đổi nền thành đỏ khi rê chuột */
+#menu a:hover {
+    background-color: red;
+}
+
+/* Định vị menu con bên dưới menu cha */
+#menu ul ul {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    visibility: hidden;
+    background-color: black;
+    z-index: 10;
+}
+
+/* Không cho các mục con trôi ngang */
+#menu ul ul li {
+    float: none;
+}
+
+/* Hiển thị menu con khi rê chuột vào mục cha */
+#menu ul li:hover > ul {
+    visibility: visible;
+}
